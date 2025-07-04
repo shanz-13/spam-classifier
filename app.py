@@ -5,6 +5,11 @@ from nltk.corpus import stopwords
 import string
 from nltk.stem.porter import PorterStemmer
 
+try:
+    nltk.data.find('tokenizers/punkt_tab')
+except LookupError:
+    nltk.download('punkt_tab')
+    
 ps = PorterStemmer()
 
 tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
